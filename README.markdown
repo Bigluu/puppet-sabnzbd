@@ -1,13 +1,14 @@
 #sabnzbd
 
+[![Build Status](https://travis-ci.org/DexterTheDragon/puppet-sabnzbd.png?branch=master)](https://travis-ci.org/DexterTheDragon/puppet-sabnzbd)
+
 ####Table of Contents
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with [Modulename]](#setup)
-    * [What [Modulename] affects](#what-[modulename]-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with [Modulename]](#beginning-with-[Modulename])
+3. [Setup - The basics of getting started with [sabnzbd]](#setup)
+    * [What [sabnzbd] affects](#what-sabnzbd-affects)
+    * [Beginning with [sabnzbd]](#beginning-with-sabnzbd)
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
@@ -15,48 +16,59 @@
 
 ##Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves. This is your 30 second elevator pitch for your module. Consider including OS/Puppet version it works with.
+Puppet modules for installing sabnzbd+
 
 ##Module Description
 
-If applicable, this section should have a brief description of the technology the module integrates with and what that integration enables. This section should answer the questions: "What does this module *do*?" and "Why would I use it?"
-
-If your module has a range of functionality (installation, configuration, management, etc.) this is the time to mention it.
+Installs sabnzbd+, from the jcfp ppa by default. Also creates the required `/etc/default/sabnzbdplus` file and starts the service.
 
 ##Setup
 
-###What [Modulename] affects
+###What [sabnzbd] affects
 
-* A list of files, packages, services, or operations that the module will alter, impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
+* By default adds the jcfp ppa
+* Installs the sabnzbdplus package
+* Creates the `/etc/default/sabnzbdplus` file
+* Starts the sabnzbdplus service
 
-###Setup Requirements **OPTIONAL**
+###Beginning with [sabnzbd]
 
-If your module requires anything extra before setting up (pluginsync enabled, etc.), mention it here.
+To install sabnzbdplus from ppa:jcfp/ppa and run it as `myuser`.
 
-###Beginning with [Modulename]
-
-The very basic steps needed for a user to get the module up and running.
-
-If your most recent release breaks compatibility or requires particular steps for upgrading, you may wish to include an additional section here: Upgrading (For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+```
+class { 'sabnzbd':
+    user => 'myuser',
+}
+```
 
 ##Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing the fancy stuff with your module here.
+To disable usage of the jcfp ppa and install from Ubuntu multiverse:
+
+```
+class { 'sabnzbd':
+    use_ppa => false,
+    user    => 'myuser',
+}
+```
 
 ##Reference
 
-Here, list the classes, types, providers, facts, etc contained in your module. This section should include all of the under-the-hood workings of your module so people know what the module is touching on their system but don't need to mess with things. (We are working on automating this section!)
+Classes
+* sabnzbd
 
 ##Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+Ubuntu only currently.
 
 ##Development
 
-Since your module is awesome, other users will want to play with it. Let them know what the ground rules for contributing are.
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a future version unintentionally.
+* Commit your changes
+* Send me a pull request. Bonus points for topic branches.
 
-##Release Notes/Contributors/Etc **Optional**
+##Release Notes
 
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You may also add any additional sections you feel are necessary or important to include here. Please use the `## ` header.
+See the [CHANGELOG](https://github.com/DexterTheDragon/puppet-sabnzbd/blob/master/CHANGELOG)
