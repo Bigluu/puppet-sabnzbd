@@ -8,6 +8,12 @@
 #   Explanation of what this parameter affects and what it defaults to.
 #
 class sabnzbd (
+  $use_ppa = true,
+  $user = undef,
+  $config = undef,
+  $host = undef,
+  $port = undef,
+  $extra_opts = undef,
 ) inherits sabnzbd::params {
 
   # validate parameters here

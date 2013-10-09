@@ -8,3 +8,4 @@ description   'Installs sabnzbd+'
 project_page  'https://github.com/DexterTheDragon/puppet-sabnzbd'
 
 dependency 'puppetlabs/stdlib'
+dependency 'puppetlabs/apt'

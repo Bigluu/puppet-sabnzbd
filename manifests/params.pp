@@ -6,8 +6,8 @@
 class sabnzbd::params {
   case $::osfamily {
     'Debian': {
-      $package_name = 'sabnzbd'
-      $service_name = 'sabnzbd'
+      $package_name = 'sabnzbdplus'
+      $service_name = 'sabnzbdplus'
     }
     'RedHat', 'Amazon': {
       $package_name = 'sabnzbd'

@@ -7,6 +7,7 @@ describe 'sabnzbd' do
         let(:params) {{ }}
         let(:facts) {{
           :osfamily => osfamily,
+          :lsbdistcodename => 'quantal',
         }}
 
         it { should include_class('sabnzbd::params') }
