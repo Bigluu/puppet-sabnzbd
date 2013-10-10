@@ -7,5 +7,5 @@ summary       'Module for installing sabnzbd+'
 description   'Installs sabnzbd+'
 project_page  'https://github.com/DexterTheDragon/puppet-sabnzbd'
 
-dependency 'puppetlabs/stdlib'
-dependency 'puppetlabs/apt'
+dependency 'puppetlabs/stdlib', '>= 0'
+dependency 'puppetlabs/apt', '>= 0'
